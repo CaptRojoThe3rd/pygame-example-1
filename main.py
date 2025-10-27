@@ -17,7 +17,7 @@ ENEMY_SPAWN_CHANCE = 10 # out of 1000
 
 PLAYER_SIZE = 30
 PLAYER_SPEED = 5
-PLAYER_HEAL_SPEED = 2 # chance; out of 1000
+PLAYER_HEAL_SPEED = 10 # chance; out of 1000
 PLAYER_COLOR = (0xff, 0xff, 0xff)
 
 HEALTHBAR_BG_COLOR = (0x10, 0x10, 0x10)
@@ -28,8 +28,7 @@ BULLET_SIZE = 10
 BULLET_COLOR = (0x80, 0x80, 0x80)
 
 
-keys = {pygame.K_UP: False, pygame.K_DOWN: False, pygame.K_LEFT: False, pygame.K_RIGHT: False, pygame.K_SLASH: False,
-		pygame.K_w: False, pygame.K_s: False, pygame.K_a: False, pygame.K_d: False, pygame.K_e: False}
+keys = {}
 game_over: bool = False
 
 
@@ -76,6 +75,8 @@ class Player(Entity):
 		self.health: int = 100
 		self.just_fired: bool = False
 		self.map: list = map
+		for v in map:
+			keys[v] = False
 		self.id: int = id
 
 	def update(self) -> bool:
