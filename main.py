@@ -167,7 +167,7 @@ class Bullet(Entity):
 
 	def update(self) -> bool:
 		super().update()
-		return self.y < (0 - (BULLET_SIZE * 2))
+		return self.y > 0
 
 	def render(self, surf: pygame.Surface) -> None:
 		pygame.draw.rect(surf, BULLET_COLOR, pygame.Rect(self.x, self.y, BULLET_SIZE, BULLET_SIZE * 2))
