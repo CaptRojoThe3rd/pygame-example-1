@@ -165,6 +165,10 @@ class Bullet(Entity):
 		self.y = y
 		self.yvel = -BULLET_SPEED
 
+	def update(self) -> bool:
+		super().update()
+		return self.y < (0 - (BULLET_SIZE * 2))
+
 	def render(self, surf: pygame.Surface) -> None:
 		pygame.draw.rect(surf, BULLET_COLOR, pygame.Rect(self.x, self.y, BULLET_SIZE, BULLET_SIZE * 2))
 
